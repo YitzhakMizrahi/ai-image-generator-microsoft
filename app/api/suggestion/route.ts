@@ -1,8 +1,10 @@
 export async function GET(request: Request) {
-  //   Connect to our Microsoft Azure Function endpoint
-  const response = await fetch('...', {
-    cache: 'no-store',
-  });
+  const response = await fetch(
+    `${process.env.AZURE_FUNCTIONS_ENDPOINT_URL}/api/getChatGPTSuggestion`,
+    {
+      cache: 'no-store',
+    }
+  );
 
   const textData = await response.text();
 
