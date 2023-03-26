@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react';
 import useSWR from 'swr';
+import toast from 'react-hot-toast';
 import fetchSuggestionFromChatGPT from '@/lib/fetchSuggestionFromChatGPT';
 import fetchImages from '@/lib/fetchImages';
 
@@ -28,6 +29,11 @@ function PromptInput() {
     // p is the prompt to send to API
     const p = useSuggestion ? suggestion : inputPrompt;
 
+    const notificationPrompt = p;
+    const notificationPropmtShort = notificationPrompt.slice(0, 20);
+
+    const notification = toast.loading(`"${notificationPropmtShort}"`);
+
     const res = await fetch('/api/generateImage', {
       method: 'POST',
       headers: {
@@ -37,6 +43,16 @@ function PromptInput() {
     });
 
     const data = await res.json();
+
+    if (data.error) {
+      toast.error(data.error, {
+        id: notification,
+      });
+    } else {
+      toast.success(`Your AI Art has been generated!`, {
+        id: notification,
+      });
+    }
 
     refreshImages();
   };
