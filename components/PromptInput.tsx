@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import useSWR from 'swr';
 import fetchSuggestionFromChatGPT from '@/lib/fetchSuggestionFromChatGPT';
+import fetchImages from '@/lib/fetchImages';
 
 function PromptInput() {
   const [input, setInput] = useState('');
@@ -10,17 +11,50 @@ function PromptInput() {
   const {
     data: suggestion,
     isLoading,
-    mutate,
+    mutate: refreshSuggestion,
     isValidating,
   } = useSWR('/api/suggestion', fetchSuggestionFromChatGPT, {
     revalidateOnFocus: false,
   });
 
+  const { mutate: refreshImages } = useSWR('/api/getImages', fetchImages, {
+    revalidateOnFocus: false,
+  });
+
+  const submitPrompt = async (useSuggestion?: boolean) => {
+    const inputPrompt = input;
+    setInput('');
+
+    // p is the prompt to send to API
+    const p = useSuggestion ? suggestion : inputPrompt;
+
+    const res = await fetch('/api/generateImage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ prompt: p }),
+    });
+
+    const data = await res.json();
+
+    refreshImages();
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    await submitPrompt();
+  };
+
   const loading = isLoading || isValidating;
 
   return (
     <div className="m-10">
-      <form className="flex flex-col lg:flex-row shadow-md shadow-slate-400/10 border rounded-md lg:divide-x">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col lg:flex-row shadow-md shadow-slate-400/10 border rounded-md lg:divide-x"
+      >
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
@@ -45,13 +79,14 @@ function PromptInput() {
         <button
           className="p-4 bg-violet-400 text-white transition-colors duration-200 font-bold disabled:text-gray-300 disabled:cursor-not-allowed disabled:bg-gray-400"
           type="button"
+          onClick={() => submitPrompt(true)}
         >
           Use Suggestion
         </button>
         <button
           className="p-4 bg-white text-violet-500 border-none transition-colors duration-200 rounded-b-md md:rounded-r-md md:rounded-bl-none font-bold"
           type="button"
-          onClick={mutate}
+          onClick={refreshSuggestion}
         >
           New Suggestion
         </button>
