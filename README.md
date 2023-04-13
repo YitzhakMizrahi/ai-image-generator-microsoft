@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, install the dependencies:
+1. install the dependencies:
 
 ```bash
 npm i
@@ -19,7 +19,13 @@ cd .\azure\ && yarn
 cd .\azure\ && pnpm i
 ```
 
-Then, run the development server at root level:
+2. Copy `.env.example` to `.env.local` and update the variables.
+
+```sh
+cp .env.example .env.local
+```
+
+3. run the development server at root level:
 
 ```bash
 npm run dev
@@ -29,7 +35,7 @@ yarn dev
 pnpm dev
 ```
 
-Finally, start Azure:
+4. start Azure:
 
 ```bash
 cd .\azure\ && npm run start
