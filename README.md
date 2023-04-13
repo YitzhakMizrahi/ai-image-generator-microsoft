@@ -10,9 +10,16 @@ npm i
 yarn 
 # or
 pnpm i
+
+# install the dependencies for azure
+cd .\azure\ && npm i
+# or
+cd .\azure\ && yarn 
+# or
+cd .\azure\ && pnpm i
 ```
 
-Then, run the development server:
+Then, run the development server at root level:
 
 ```bash
 npm run dev
