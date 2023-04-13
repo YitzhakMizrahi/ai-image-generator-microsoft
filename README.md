@@ -19,15 +19,19 @@ cd .\azure\ && yarn
 cd .\azure\ && pnpm i
 ```
 
-2. Copy `.env.example` to `.env.local` and update the variables then do the same for `local.settings.example.json` to `local.settings.json` inside azure directory.
+2. Copy `.env.example` to `.env.local` and update the variables.
 
 ```sh
 cp .env.example .env.local
-# and
+```
+
+3. Copy `local.settings.example.json` to `local.settings.json` and update the variables inside the `azure` directory.
+
+```sh
 cd ..\azure\ && cp local.settings.example.json local.settings.json
 ```
 
-3. run the development server at root level:
+4. run the development server at root level:
 
 ```bash
 npm run dev
@@ -37,7 +41,7 @@ yarn dev
 pnpm dev
 ```
 
-4. start Azure:
+5. start Azure:
 
 ```bash
 cd .\azure\ && npm run start
