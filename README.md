@@ -1,4 +1,4 @@
-# AI Image Generator - Next.js Application
+# Next.js / TypeScript / TailwindCSS / Azure
 
 This project is a [Next.js](https://nextjs.org/) application created using [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It uses Azure Functions for serverless architecture and features custom Google Fonts optimized using [`next/font`](https://nextjs.org/docs/basic-features/font-optimization).
 
@@ -6,6 +6,7 @@ This project is a [Next.js](https://nextjs.org/) application created using [`cre
 
 - Node.js installed on your local machine
 - An Azure account
+- An OpenAI account
 
 ## Setup and Installation
 
