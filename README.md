@@ -10,6 +10,8 @@ npm run dev
 yarn dev
 # or
 pnpm dev
+# then to start Azure
+cd .\azure\ && npm run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
