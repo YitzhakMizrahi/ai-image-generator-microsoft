@@ -1,37 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI Image Generator - Next.js Application
 
-## Getting Started
+This project is a [Next.js](https://nextjs.org/) application created using [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It uses Azure Functions for serverless architecture and features custom Google Fonts optimized using [`next/font`](https://nextjs.org/docs/basic-features/font-optimization).
 
-1. install the dependencies:
+## Prerequisites
+
+- Node.js installed on your local machine
+- An Azure account
+
+## Setup and Installation
+
+Follow these steps to get the project up and running:
+
+### 1. Install Dependencies
+
+Navigate to the project's root directory and run one of the following commands to install the necessary dependencies:
 
 ```bash
 npm i
 # or
-yarn 
+yarn
 # or
 pnpm i
+```
 
-# install the dependencies for azure
+Then, install the dependencies for Azure Functions:
+
+```bash
 cd .\azure\ && npm i
 # or
-cd .\azure\ && yarn 
+cd .\azure\ && yarn
 # or
 cd .\azure\ && pnpm i
 ```
 
-2. Copy `.env.example` to `.env.local` and update the variables.
+### 2. Set Up Environment Variables
 
-```sh
+Copy the .env.example file to a new file named .env.local and update the variables accordingly:
+
+```bash
 cp .env.example .env.local
 ```
 
-3. Copy `local.settings.example.json` to `local.settings.json` and update the variables inside the `azure` directory.
+Copy the local.settings.example.json file to a new file named local.settings.json inside the azure directory and update the variables:
 
-```sh
+```bash
 cd ..\azure\ && cp local.settings.example.json local.settings.json
 ```
 
-4. run the development server at root level:
+### 4. Start the Development Server
+
+From the root directory, start the development server with one of the following commands:
 
 ```bash
 npm run dev
@@ -41,7 +59,9 @@ yarn dev
 pnpm dev
 ```
 
-5. start Azure:
+### 5. Start Azure Functions
+
+Start Azure Functions using one of these commands:
 
 ```bash
 cd .\azure\ && npm run start
