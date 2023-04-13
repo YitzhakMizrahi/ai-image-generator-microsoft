@@ -1,0 +1,18 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AZURE_STORAGE_ACCOUNT_NAME": "",
+    "AZURE_STORAGE_ACCOUNT_KEY": "",
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "",
+    "AzureWebJobsFeatureFlags": "",
+    "FUNCTIONS_EXTENSION_VERSION": "",
+    "WEBSITE_NODE_DEFAULT_VERSION": "",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "",
+    "WEBSITE_CONTENTSHARE": "",
+    "WEBSITE_RUN_FROM_PACKAGE": "",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "",
+    "OPENAI_ORGANIZATION_ID": "org-",
+    "OPENAI_API_KEY": "sk-"
+  }
+}
