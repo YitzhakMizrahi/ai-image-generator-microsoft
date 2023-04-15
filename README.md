@@ -1,6 +1,4 @@
-# Next.js / TypeScript / TailwindCSS / Azure
-
-This project is a [Next.js](https://nextjs.org/) application created using [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It uses Azure Functions for serverless architecture and features custom Google Fonts optimized using [`next/font`](https://nextjs.org/docs/basic-features/font-optimization).
+This project is a [Next.js](https://nextjs.org/) application created using [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). Powered by DALL·E 2, Chat GPT & Microsoft Azure.
 
 ## Prerequisites
 
@@ -72,7 +70,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/[routename]](http://localhost:3000/api/). Endpoints can be edited in `pages/api/[routename]/route.ts`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
